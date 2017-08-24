@@ -120,7 +120,8 @@ public class ScreenFragment extends Fragment {
             mFoodPrice.setText("");
             mFoodPeople.setText("");
 
-            mValue.setText(text + "\n" + mValue.getText().toString());
+//            mValue.setText(text + "\n" + mValue.getText().toString());
+            mValue.setText(mValue.getText().toString() + "\n" + text);
         }
     }
 

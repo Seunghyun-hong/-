@@ -3,6 +3,7 @@ package hongseung.com.nbread;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements ScreenFragment.OnSendMessageListener {
 
@@ -29,8 +30,8 @@ public class MainActivity extends AppCompatActivity implements ScreenFragment.On
         mFragment1.sendMessage(mMessage);
     }
 
-
-//    public void shareButtonClicked1(View view) {
+    // 이건 카톡만 되더라고.
+//    public void shareButtonClicked(View view) {
 //        Intent intent = new Intent(Intent.ACTION_SENDTO);
 //        intent.setType("text/plaint");
 //        intent.putExtra(Intent.EXTRA_TEXT, mMessage);
@@ -40,15 +41,28 @@ public class MainActivity extends AppCompatActivity implements ScreenFragment.On
 //        }
 //    }
 
+    // 이건 안되는거!!
+    //    public void shareButtonClicked(String message) {
+//        Intent intent = new Intent(Intent.ACTION_SENDTO);
+//        intent.setType("text/plaint");
+//        intent.putExtra(Intent.EXTRA_TEXT, message);
+//
+//        if (intent.resolveActivity(getPackageManager()) != null) {
+//            startActivity(intent);
+//        }
+//    }
 
-    public void shareButtonClicked(String message) {
-        Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setType("text/plaint");
-        intent.putExtra(Intent.EXTRA_TEXT, message);
+    // 이건 모든앱?! 에서 된다!
+    public void shareButtonClicked(View view) {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.setType("text/plain");
 
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        }
+        Intent chooser = Intent.createChooser(intent, "공유");
+
+        startActivity(chooser);
     }
+
+
 }
 
