@@ -26,6 +26,8 @@ public class ScreenFragment extends Fragment {
     private Button mResultButton;
     private Button mShareButton;
 
+//    private DecimalFormat mFormat = new DecimalFormat("#,##0");
+
     private OnSendMessageListener mListener;  // 오늘 배운 리스너
 
     public ScreenFragment() {
@@ -111,7 +113,7 @@ public class ScreenFragment extends Fragment {
             message += "\n====================";
             message += "\n총 가격 : " + mFoodPrice.getText().toString();
             message += "\n인원 : " + mFoodPeople.getText().toString();
-            message += "\nN/1 가격 : " + mValue.getText() + "원";
+            message += "\nN/1 가격 : " +mValue.getText() + "원";
 
             mValue.setText(message);
 

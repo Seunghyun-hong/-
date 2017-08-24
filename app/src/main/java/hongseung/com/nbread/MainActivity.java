@@ -5,10 +5,15 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import static android.R.id.message;
+
 public class MainActivity extends AppCompatActivity implements ScreenFragment.OnSendMessageListener {
+
 
     private ScreenFragment mFragment1;
     private String mMessage;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,12 +62,11 @@ public class MainActivity extends AppCompatActivity implements ScreenFragment.On
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_SEND);
         intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, message);
 
-        Intent chooser = Intent.createChooser(intent, "공유");
-
-        startActivity(chooser);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
-
-
 }
 
