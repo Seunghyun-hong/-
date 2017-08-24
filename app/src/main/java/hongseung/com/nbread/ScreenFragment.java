@@ -24,7 +24,7 @@ public class ScreenFragment extends Fragment {
     private EditText mFoodPeople;
     private TextView mValue;
     private Button mResultButton;
-    private Button mShareButton;
+//    private Button mShareButton;
 
 //    private DecimalFormat mFormat = new DecimalFormat("#,##0");
 
@@ -122,10 +122,12 @@ public class ScreenFragment extends Fragment {
             mFoodPrice.setText("");
             mFoodPeople.setText("");
 
-//            mValue.setText(text + "\n" + mValue.getText().toString());
+            mValue.setText(text + "\n" + mValue.getText().toString());
             mValue.setText(mValue.getText().toString() + "\n" + text);
         }
     }
+
+
 
 
 //    // 공유인텐트

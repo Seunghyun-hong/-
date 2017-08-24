@@ -1,11 +1,7 @@
 package hongseung.com.nbread;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-
-import static android.R.id.message;
 
 public class MainActivity extends AppCompatActivity implements ScreenFragment.OnSendMessageListener {
 
@@ -57,16 +53,16 @@ public class MainActivity extends AppCompatActivity implements ScreenFragment.On
 //        }
 //    }
 
-    // 이건 모든앱?! 에서 된다!
-    public void shareButtonClicked(View view) {
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT, message);
-
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        }
-    }
+//    // 이건 모든앱?! 에서 된다!
+//    public void shareButtonClicked(View view) {
+//        Intent intent = new Intent();
+//        intent.setAction(Intent.ACTION_SEND);
+//        intent.setType("text/plain");
+//        intent.putExtra(Intent.EXTRA_TEXT, message);
+//
+//        if (intent.resolveActivity(getPackageManager()) != null) {
+//            startActivity(intent);
+//        }
+//    } 에잇 공유빼!! 쳇쳇
 }
 
