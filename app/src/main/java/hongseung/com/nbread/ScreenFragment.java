@@ -113,7 +113,7 @@ public class ScreenFragment extends Fragment {
             text += "\n====================";
             text += "\n총 가격 : " + mFoodPrice.getText().toString();
             text += "\n인원 : " + mFoodPeople.getText().toString();
-            text += "\nN/1 가격 : " +mValue.getText() + "원";
+            text += "\nN/1 가격 : " + mValue.getText() + "원";
 
             mValue.setText(text);
 
@@ -128,21 +128,7 @@ public class ScreenFragment extends Fragment {
     }
 
     // 공유되는 메소드
-
-
-
-
-//    // 공유인텐트
-//    //원장님버전 (이메일로 보내는 거고 mailto는 반드시 들어가야 하네..)
-//    public void shareButtonClicked(View view) {
-//        Intent intent = new Intent(Intent.ACTION_SENDTO);
-//        intent.setType("text/plaint");
-//        intent.putExtra(Intent.EXTRA_TEXT, mValue.getText().toString());
-//
-//        if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
-//            startActivity(intent);
-//        }
-//    }
+    public String shareMessage() {
+        return mValue.getText().toString();
+    }
 }
-
-//getPackageManager()

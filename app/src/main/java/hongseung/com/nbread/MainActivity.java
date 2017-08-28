@@ -7,11 +7,7 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements ScreenFragment.OnSendMessageListener {
 
-
     private ScreenFragment mFragment1;
-    private String mMessage;
-    private String mGetText;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,48 +23,23 @@ public class MainActivity extends AppCompatActivity implements ScreenFragment.On
                 .commit();
     }
 
+    // 메시지를 뿌린다.
     @Override
     public void onSendMessage(String message) {
-        mGetText = message;
-        mFragment1.sendMessage(mGetText);
+        mFragment1.sendMessage(message);
     }
 
     // 이건 모든앱?! 에서 된다!
     public void shareButtonClicked(View view) {
+        String message = mFragment1.shareMessage();
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_SEND);
         intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT, mGetText);
+        intent.putExtra(Intent.EXTRA_TEXT, message);
 
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
-    } // 에잇 공유빼!! 쳇쳇
-
-
-
-
-    // 이건 카톡만 되더라고.
-//    public void shareButtonClicked(View view) {
-//        Intent intent = new Intent(Intent.ACTION_SENDTO);
-//        intent.setType("text/plaint");
-//        intent.putExtra(Intent.EXTRA_TEXT, mMessage);
-//
-//        if (intent.resolveActivity(getPackageManager()) != null) {
-//            startActivity(intent);
-//        }
-//    }
-
-    // 이건 안되는거!!
-    //    public void shareButtonClicked(String message) {
-//        Intent intent = new Intent(Intent.ACTION_SENDTO);
-//        intent.setType("text/plaint");
-//        intent.putExtra(Intent.EXTRA_TEXT, message);
-//
-//        if (intent.resolveActivity(getPackageManager()) != null) {
-//            startActivity(intent);
-//        }
-//    }
-
+    }
 }
 
