@@ -109,13 +109,13 @@ public class ScreenFragment extends Fragment {
 
             mValue.setText("" + price / people);
 
-            String message = "\n음식이름 : " + mFoodName.getText().toString();
-            message += "\n====================";
-            message += "\n총 가격 : " + mFoodPrice.getText().toString();
-            message += "\n인원 : " + mFoodPeople.getText().toString();
-            message += "\nN/1 가격 : " +mValue.getText() + "원";
+            text = "\n음식이름 : " + mFoodName.getText().toString();
+            text += "\n====================";
+            text += "\n총 가격 : " + mFoodPrice.getText().toString();
+            text += "\n인원 : " + mFoodPeople.getText().toString();
+            text += "\nN/1 가격 : " +mValue.getText() + "원";
 
-            mValue.setText(message);
+            mValue.setText(text);
 
             // 초기화
             mFoodName.setText("");
@@ -126,6 +126,8 @@ public class ScreenFragment extends Fragment {
 //            mValue.setText(mValue.getText().toString() + "\n" + text);
         }
     }
+
+    // 공유되는 메소드
 
 
 
