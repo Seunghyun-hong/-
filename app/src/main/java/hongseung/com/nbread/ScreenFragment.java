@@ -57,14 +57,6 @@ public class ScreenFragment extends Fragment {
                 mListener.onSendMessage(mValue.getText().toString());
             }
         });
-
-//        mShareButton = (Button) view.findViewById(R.id.share_button);
-//        mShareButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                shareButtonClicked(view);
-//            }
-//        });
     }
 
     @Override
