@@ -123,7 +123,7 @@ public class ScreenFragment extends Fragment {
             mFoodPeople.setText("");
 
             mValue.setText(text + "\n" + mValue.getText().toString());
-            mValue.setText(mValue.getText().toString() + "\n" + text);
+//            mValue.setText(mValue.getText().toString() + "\n" + text);
         }
     }
 
