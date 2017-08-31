@@ -1,6 +1,7 @@
 package hongseung.com.nbread;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -21,7 +23,7 @@ public class ScreenFragment extends Fragment {
     private EditText mFoodPeople;
     private TextView mValue;
 
-
+    ///////////////////////////////////////////////////////////
     //엑티비티와 통신할 수있는 인터페이스를 만들자
     public interface OnSendMessageListener {
         void onSendMessage(String message); // 일단 메세지를 받고 다뿌린다 라는 걸로 할꺼라 구분필요없뜸.
@@ -30,6 +32,7 @@ public class ScreenFragment extends Fragment {
     //이걸 들고 있을 객체도 만들어줌
 
     private OnSendMessageListener mListener;
+////////////////////////////////////////////////////////////////
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,16 +50,81 @@ public class ScreenFragment extends Fragment {
         mFoodPeople = (EditText) view.findViewById(R.id.num2_edit_text);
         mValue = (TextView) view.findViewById(R.id.value_text);
 
+
         //계산 버튼 가져오자
         view.findViewById(R.id.result_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // 클릭이 되면 리스너를 가 메시지를 전달하는 거지!
+                result();
+                // 클릭이 되면 리스너를 가 메시지를 전달하는 거지!
                 // 저 벨류값에 있는 걸.. 들고 있어라.
                 mListener.onSendMessage(mValue.getText().toString());
             }
         });
     }
 
+    // 계산 할 수 있는 기능을 넣자
+    public void result() {
+        if (mFoodName.getText().length() == 0
+                || mFoodPeople.getText().length() == 0
+                || mFoodPrice.getText().length() == 0
+//                        || mFoodPrice.getText().toString().equals("0")
+//                        || mFoodPeople.getText().toString().equals("0")
+                || mFoodPrice.getText().toString().startsWith("0")
+                || mFoodPeople.getText().toString().startsWith("0")) {
+            Toast.makeText(getActivity(), "올바른 값을 입력해주세요", Toast.LENGTH_SHORT).show();
+        } else {
+            String foodPrice = mFoodPrice.getText().toString();
+            Integer price = Integer.parseInt(foodPrice);
+            String foodPeople = mFoodPeople.getText().toString();
+            Integer people = Integer.parseInt(foodPeople);
 
+            mValue.setText("" + price / people);
+
+            String message = "\n음식이름 : " + mFoodName.getText().toString();
+            message += "\n====================";
+            message += "\n총 가격 : " + mFoodPrice.getText().toString();
+            message += "\n인원 : " + mFoodPeople.getText().toString();
+            message += "\nN/1 금액 : " + mValue.getText() + "원";
+
+            mValue.setText("" + price % people);
+
+            message += "\n남은 금액 : " + mValue.getText() + "원 \n 결제자가 내는건 어때요?! 헤헤";
+
+            // 초기화
+            mFoodName.setText("");
+            mFoodPrice.setText("");
+            mFoodPeople.setText("");
+
+        }
+    }
+
+
+    ///////////////////////////////////////////////////////////////
+    public ScreenFragment() {
+        // Required empty public constructor
+    }
+
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnSendMessageListener) {
+            mListener = (OnSendMessageListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
+
+    public void sendMessage(String message) {
+        mValue.setText(message + "\n" + mValue.getText().toString());
+    }
 }
