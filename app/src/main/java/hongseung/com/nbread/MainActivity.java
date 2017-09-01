@@ -8,7 +8,7 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity implements ScreenFragment.OnSendMessageListener {
 
     private ScreenFragment mFragment1;
-    private String mMessage;
+    private String getMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,20 +24,22 @@ public class MainActivity extends AppCompatActivity implements ScreenFragment.On
                 .commit();
     }
 
+    // 프래그먼트와 통신
     @Override
     public void onSendMessage(String message) {
-        mMessage = message;
-        mFragment1.sendMessage(mMessage);
+        getMessage = message;
     }
+
 
 
     public void shareButtonClicked (View view){
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setType("text/plaint");
-        intent.putExtra(Intent.EXTRA_TEXT, mMessage);
+        intent.putExtra(Intent.EXTRA_TEXT, getMessage);
 
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
     }
+
 }
