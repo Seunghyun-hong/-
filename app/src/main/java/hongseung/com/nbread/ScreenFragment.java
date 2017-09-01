@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,7 +31,6 @@ public class ScreenFragment extends Fragment {
         void onSendMessage(String message); // 일단 메세지를 받고 다뿌린다 라는 걸로 할꺼라 구분필요없뜸.
     }
     //이걸 들고 있을 객체도 만들어줌
-
     private OnSendMessageListener mListener;
 ////////////////////////////////////////////////////////////////
 
