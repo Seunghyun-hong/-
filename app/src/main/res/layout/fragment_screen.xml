@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:maxLength="30"
-        android:hint="음식의 이름을 넣어주세요" />
+        android:hint="음식, 모임명, 1차 2차 등을 적어주세요" />
 
     <EditText
         android:id="@+id/num1_edit_text"
