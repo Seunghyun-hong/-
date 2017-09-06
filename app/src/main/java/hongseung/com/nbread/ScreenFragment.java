@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -80,12 +79,17 @@ public class ScreenFragment extends Fragment {
         Integer people = Integer.parseInt(foodPeople);
 
         mValue.setText("" + price / people);
+        int remainder = price % people;
 
         mMessage = "\n" + mFoodName.getText().toString();
         mMessage += "\n====================";
         mMessage += "\n총 가격 : " + mFoodPrice.getText().toString();
         mMessage += "\n인원 : " + mFoodPeople.getText().toString();
         mMessage += "\nN/1 금액 : " + mValue.getText() + "원";
+        if (remainder != 0) {
+        mMessage += "\n남은 금액 : " + remainder + "원";
+        mMessage += "\n남은 금액은 결제자가 내주세요~>_<";
+        }
 
 
 //        mValue.setText("" + price % people);

@@ -15,12 +15,12 @@ public class MainActivity extends AppCompatActivity implements ScreenFragment.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mFragment = new ScreenFragment();
+        mFragment1 = new ScreenFragment();
 
         // R.id.container 영역에 프래그먼트를 붙이겠다.
         // 근데 굳이 동적으로 붙일 필요가... 없긴 한데..
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.container1, mFragment)
+                .add(R.id.container1, mFragment1)
                 .commit();
     }
 
