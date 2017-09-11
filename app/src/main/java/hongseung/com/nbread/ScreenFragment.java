@@ -1,13 +1,16 @@
 package hongseung.com.nbread;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +32,7 @@ public class ScreenFragment extends Fragment {
     public interface OnSendMessageListener {
         void onSendMessage(String message); // 일단 메세지를 받고 다뿌린다 라는 걸로 할꺼라 구분필요없뜸.
     }
+
     //이걸 들고 있을 객체도 만들어줌
     private OnSendMessageListener mListener;
 ////////////////////////////////////////////////////////////////
@@ -49,6 +53,16 @@ public class ScreenFragment extends Fragment {
         mFoodPeople = (EditText) view.findViewById(R.id.num2_edit_text);
         mValue = (TextView) view.findViewById(R.id.value_text);
 
+        // 키보드를 바꿔보자?!
+        mFoodPeople.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.ACTION_DOWN) {
+                    dismissKeyboard();
+                }
+                return false;
+            }
+        });
 
         //계산 버튼 가져오자
         view.findViewById(R.id.result_button).setOnClickListener(new View.OnClickListener() {
@@ -70,6 +84,13 @@ public class ScreenFragment extends Fragment {
         });
     }
 
+
+    // 키보드 내리게 하는 기능
+    private void dismissKeyboard() {
+        InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(mFoodPeople.getWindowToken(), 0);
+    }
+
     // 계산 할 수 있는 기능을 넣자
     public void result(String foodPrice, String foodPeople) {
 
@@ -87,8 +108,8 @@ public class ScreenFragment extends Fragment {
         mMessage += "\n인원 : " + mFoodPeople.getText().toString();
         mMessage += "\nN/1 금액 : " + mValue.getText() + "원";
         if (remainder != 0) {
-        mMessage += "\n남은 금액 : " + remainder + "원";
-        mMessage += "\n남은 금액은 결제자가 내주세요~>_<";
+            mMessage += "\n남은 금액 : " + remainder + "원";
+            mMessage += "\n남은 금액은 결제자가 내주세요~>_<";
         }
 
 
@@ -129,7 +150,7 @@ public class ScreenFragment extends Fragment {
     }
 
 
-    public void sendMessage() {
-        mValue.getText();
-    }
+//    public void sendMessage() {
+//        mValue.getText();
+//    }
 }

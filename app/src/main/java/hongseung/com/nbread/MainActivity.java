@@ -33,14 +33,14 @@ public class MainActivity extends AppCompatActivity implements ScreenFragment.On
     }
 
 
-
+    // 공유
     public void shareButtonClicked (View view){
-        Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setType("text/plaint");
-        intent.putExtra(Intent.EXTRA_TEXT, getMessage);
+        Intent sendIntent = new Intent(Intent.ACTION_SEND);
+        sendIntent.setType("text/plaint");
+        sendIntent.putExtra(Intent.EXTRA_TEXT, getMessage);
 
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
+        if (sendIntent.resolveActivity(getPackageManager()) != null) {
+            startActivity(sendIntent);
         }
     }
 

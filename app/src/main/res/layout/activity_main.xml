@@ -4,20 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#effff0"
     android:orientation="vertical"
     tools:context="hongseung.com.nbread.MainActivity">
 
     <FrameLayout
-        android:layout_weight="1"
         android:id="@+id/container1"
         android:layout_width="match_parent"
-        android:layout_height="0dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <Button
-        android:onClick="shareButtonClicked"
         android:id="@+id/share_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="#b1fdd939"
+        android:onClick="shareButtonClicked"
         android:text="공유" />
 
 

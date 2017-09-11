@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#effff0"
     android:orientation="vertical"
     tools:context="hongseung.com.nbread.ScreenFragment">
 
@@ -10,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:maxLength="30"
-        android:hint="음식, 모임명, 1차 2차 등을 적어주세요" />
+        android:hint="음식, 모임명, 1차 2차 등을 적어주세요"
+        android:maxLength="30" />
 
     <EditText
         android:id="@+id/num1_edit_text"
@@ -35,6 +36,9 @@
         android:id="@+id/result_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:backgroundTint="#b1fdd939"
         android:text="계산" />
 
     <ScrollView
