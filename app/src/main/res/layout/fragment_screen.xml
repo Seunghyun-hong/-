@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:hint="음식, 모임명, 1차 2차 등을 적어주세요"
+        android:inputType="text"
         android:maxLength="30" />
 
     <EditText
@@ -30,7 +31,7 @@
         android:gravity="center"
         android:hint="먹은사람의 수"
         android:inputType="number"
-        android:maxLength="9" />
+        android:maxLength="2" />
 
     <Button
         android:id="@+id/result_button"

@@ -80,6 +80,7 @@ public class ScreenFragment extends Fragment {
                     // 저 벨류값에 있는 걸.. 들고 있어라.
                     mListener.onSendMessage(mValue.getText().toString());
                 }
+                dismissKeyboard();
             }
         });
     }
