@@ -27,7 +27,7 @@ public class ScreenFragment extends Fragment {
     private TextView mValue;
     private String mMessage;
 
-    ///////////////////////////////////////////////////////////
+    ///////////////////////////////////// //////////////////////
     //엑티비티와 통신할 수있는 인터페이스를 만들자
     public interface OnSendMessageListener {
         void onSendMessage(String message); // 일단 메세지를 받고 다뿌린다 라는 걸로 할꺼라 구분필요없뜸.
@@ -35,7 +35,7 @@ public class ScreenFragment extends Fragment {
 
     //이걸 들고 있을 객체도 만들어줌
     private OnSendMessageListener mListener;
-////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -95,9 +95,7 @@ public class ScreenFragment extends Fragment {
     // 계산 할 수 있는 기능을 넣자
     public void result(String foodPrice, String foodPeople) {
 
-//        String foodPrice = mFoodPrice.getText().toString();
         Integer price = Integer.parseInt(foodPrice);
-//        String foodPeople = mFoodPeople.getText().toString();
         Integer people = Integer.parseInt(foodPeople);
 
         mValue.setText("" + price / people);
@@ -113,11 +111,6 @@ public class ScreenFragment extends Fragment {
             mMessage += "\n남은 금액은 결제자가 내주세요~>_<";
         }
 
-
-//        mValue.setText("" + price % people);
-
-//        message += "\n남은 금액 : " + mValue.getText() + "원 \n 결제자가 내는건 어때요?! 헤헤";
-
         mValue.setText(mMessage);
         // 초기화
         mFoodName.setText("");
@@ -131,7 +124,6 @@ public class ScreenFragment extends Fragment {
     public ScreenFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public void onAttach(Context context) {
@@ -149,9 +141,4 @@ public class ScreenFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
-
-
-//    public void sendMessage() {
-//        mValue.getText();
-//    }
 }
