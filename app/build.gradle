@@ -5,7 +5,7 @@ android {
     buildToolsVersion "26.0.1"
     defaultConfig {
         applicationId "hongseung.com.nbread"
-        minSdkVersion 17
+        minSdkVersion 16
         targetSdkVersion 22
         versionCode 2
         versionName "1.0.1"
