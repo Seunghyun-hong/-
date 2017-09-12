@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity implements ScreenFragment.On
 
     private ScreenFragment mFragment1;
     private String getMessage;
+    // 광고를 달았다
     private AdView mAdView;
 
     @Override
@@ -27,8 +28,11 @@ public class MainActivity extends AppCompatActivity implements ScreenFragment.On
                 .add(R.id.container1, mFragment1)
                 .commit();
 
+        // 광고를 달았다.
         mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice("14FAEEA31CF8102023A399D0E17A1132")
+                .build();
         mAdView.loadAd(adRequest);
     }
 
@@ -42,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements ScreenFragment.On
 
 
     // 공유
-    public void shareButtonClicked (View view){
+    public void shareButtonClicked(View view) {
         Intent sendIntent = new Intent(Intent.ACTION_SEND);
         sendIntent.setType("text/plaint");
         sendIntent.putExtra(Intent.EXTRA_TEXT, getMessage);
