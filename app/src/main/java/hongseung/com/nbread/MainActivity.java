@@ -55,6 +55,5 @@ public class MainActivity extends AppCompatActivity implements ScreenFragment.On
             startActivity(sendIntent);
         }
     }
-
 }
 
