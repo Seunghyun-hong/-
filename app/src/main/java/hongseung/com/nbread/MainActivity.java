@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 public class MainActivity extends AppCompatActivity implements ScreenFragment.OnSendMessageListener {
 
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements ScreenFragment.On
                 .addTestDevice("14FAEEA31CF8102023A399D0E17A1132")
                 .build();
         mAdView.loadAd(adRequest);
+        MobileAds.initialize(getApplicationContext(),"ca-app-pub-3008643822833798~5909809915");
     }
 
 
