@@ -84,26 +84,6 @@ public class ScreenFragment extends Fragment {
             }
         });
     }
-    // 오류난다..ㅋㅋㅋㅋㅋㅋㅋ 회전따위 못하게 고정! 하자..ㅋㅋㅋㅋ
-//        // 회전시 데이터 저장
-//        if (savedInstanceState != null) {
-//            mFoodName.setText(savedInstanceState.getInt("name"));
-//            mFoodPrice.setText(savedInstanceState.getInt("price"));
-//            mFoodPeople.setText(savedInstanceState.getInt("num"));
-//            mValue.setText(savedInstanceState.getInt("result"));
-//        }
-//    }
-//
-//
-//    // 회전시 데이터 저장
-//    public void onSaveInstanceState(Bundle outState) {
-//        outState.putString("name", mFoodName.getText().toString());
-//        outState.putString("price", mFoodPrice.getText().toString());
-//        outState.putString("num", mFoodPeople.getText().toString());
-//        outState.putString("result", mValue.getText().toString());
-//        super.onSaveInstanceState(outState);
-//    }
-
 
     // 키보드 내리게 하는 기능
     private void dismissKeyboard() {
