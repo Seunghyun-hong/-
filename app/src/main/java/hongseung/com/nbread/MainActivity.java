@@ -32,10 +32,10 @@ public class MainActivity extends AppCompatActivity implements ScreenFragment.On
         // 광고를 달았다.
         mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice("14FAEEA31CF8102023A399D0E17A1132")
+//                .addTestDevice("14FAEEA31CF8102023A399D0E17A1132")
                 .build();
         mAdView.loadAd(adRequest);
-        MobileAds.initialize(getApplicationContext(),"ca-app-pub-3008643822833798~5909809915");
+        MobileAds.initialize(this,"ca-app-pub-3008643822833798~5909809915");
     }
 
 
