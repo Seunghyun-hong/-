@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">식빵더치페이-N빵</string>
+    <string name="attendee">먹은사람의 수(1~99)</string>
+    <string name="eventName">음식, 모임명, 1차 2차 등을 적어주세요</string>
+    <string name="price">가격을 넣어주세요</string>
+    <string name="ment">남은 금액은 결제자가 내주세요~:)</string>
+    <string name="monetaryUnit">원</string>
+    <string name="n_1price">N/1 금액 :</string>
+    <string name="pleaseCorrectWord">올바른 값을 넣어주세요:)</string>
+    <string name="run">계산</string>
+    <string name="share">공유</string>
+    <string name="totalPrice">총 가격 : </string>
+    <string name="balance">남은 금액 : </string>
+    <string name="attendMember">인원 : </string>
+</resources>

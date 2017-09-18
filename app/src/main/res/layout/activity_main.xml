@@ -19,9 +19,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:backgroundTint="#b1fdd939"
+        android:backgroundTint="@color/button"
         android:onClick="shareButtonClicked"
-        android:text="공유" />
+        android:text="@string/share" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"

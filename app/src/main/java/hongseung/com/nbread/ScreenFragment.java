@@ -68,12 +68,12 @@ public class ScreenFragment extends Fragment {
         view.findViewById(R.id.result_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mFoodName.getText().toString().length() == 0 ||
+                if (
                         mFoodPeople.getText().toString().length() == 0 ||
-                        mFoodPrice.getText().toString().length() == 0 ||
-                        mFoodPrice.getText().toString().startsWith("0") ||
-                        mFoodPeople.getText().toString().startsWith("0")) {
-                    Toast.makeText(getContext(), "올바른 값을 넣어주세요><", Toast.LENGTH_SHORT).show();
+                                mFoodPrice.getText().toString().length() == 0 ||
+                                mFoodPrice.getText().toString().startsWith("0") ||
+                                mFoodPeople.getText().toString().startsWith("0")) {
+                    Toast.makeText(getContext(), R.string.pleaseCorrectWord, Toast.LENGTH_SHORT).show();
                 } else {
                     result(mFoodPrice.getText().toString(), mFoodPeople.getText().toString());
                     // 클릭이 되면 리스너를 가 메시지를 전달하는 거지!
@@ -94,20 +94,22 @@ public class ScreenFragment extends Fragment {
     // 계산 할 수 있는 기능을 넣자
     public void result(String foodPrice, String foodPeople) {
 
-        Integer price = Integer.parseInt(foodPrice);
+//        Integer price = Integer.parseInt(foodPrice);
+        Double price = Double.parseDouble(foodPrice);
+//        Integer people = Integer.parseInt(foodPeople);
         Integer people = Integer.parseInt(foodPeople);
 
         mValue.setText("" + price / people);
-        int remainder = price % people;
+        int remainder = (int) (price % people);
 
         mMessage = "\n" + mFoodName.getText().toString();
         mMessage += "\n====================";
-        mMessage += "\n총 가격 : " + mFoodPrice.getText().toString();
-        mMessage += "\n인원 : " + mFoodPeople.getText().toString();
-        mMessage += "\nN/1 금액 : " + mValue.getText() + "원";
+        mMessage += "\n" + getString(R.string.totalPrice) + mFoodPrice.getText().toString();
+        mMessage += "\n" +getString(R.string.attendMember) + mFoodPeople.getText().toString();
+        mMessage += "\n" +getString(R.string.n_1price) + mValue.getText() + getString(R.string.monetaryUnit);
         if (remainder != 0) {
-            mMessage += "\n남은 금액 : " + remainder + "원";
-            mMessage += "\n남은 금액은 결제자가 내주세요~>_<";  // 랜덤으로 돌리고 싶다..ㅋㅋㅋㅋ
+            mMessage += "\n" +getString(R.string.balance) + remainder + getString(R.string.monetaryUnit);
+            mMessage += "\n" +getString(R.string.ment);  // 랜덤으로 돌리고 싶다..ㅋㅋㅋㅋ
         }
 
         mValue.setText(mMessage);

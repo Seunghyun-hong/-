@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">\"Sicbbang\"-Split the bill</string>
+    <string name="attendee">attendee(1~99)</string>
+    <string name="eventName">Please enter the name of events or dish...</string>
+    <string name="price">Total Amount</string>
+    <string name="ment">" "</string>
+    <string name="monetaryUnit">$</string>
+    <string name="n_1price">N/1 : </string>
+    <string name="pleaseCorrectWord">Please put in the correct word.</string>
+    <string name="share">Share</string>
+    <string name="totalPrice">Total Amount : </string>
+    <string name="balance">balance : </string>
+    <string name="attendMember">attendee : </string>
+    <string name="run">run</string>
+</resources>
